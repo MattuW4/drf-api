@@ -2,7 +2,7 @@ from django.db import IntegrityError
 from rest_framework import serializers
 from .models import Follower
 
-class FollowSerializer(serializers.ModelSerializer):
+class FollowerSerializer(serializers.ModelSerializer):
     """
     Serializer for the Follow model
     The create method handles the unique constraint on 'owner' and 'followed'

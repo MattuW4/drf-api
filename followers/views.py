@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 from drf_api.permissions import IsOwnerOrReadOnly
-from followers.models import Follower
-from followers.serializers import FollowerSerializer
+from .models import Follower
+from .serializers import FollowerSerializer
 
 class FollowerList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
@@ -13,5 +13,5 @@ class FollowerList(generics.ListCreateAPIView):
 
 class FollowerDetail(generics.RetrieveDestroyAPIView):
     permission_classess = [IsOwnerOrReadOnly]
-    serializer_class = LikeSerializer
-    queryset = Like.objects.all()
+    serializer_class = FollowerSerializer
+    queryset = Follower.objects.all()
